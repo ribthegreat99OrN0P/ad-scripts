@@ -38,7 +38,9 @@ if ($paramCount -eq 0) {
     $ep.Invoke($null, $null) | Out-Null
 }
 else {
-    # Ensure we pass an object[] of strings
-    [object[]]$invokeArgs = $ExeArgs
+    # Package your string[] into a single-element object[] 
+    # so that Invoke sees exactly one parameter (the string[]).
+    $invokeArgs = ,$ExeArgs   # unary comma ⇒ object[] of length 1
     $ep.Invoke($null, $invokeArgs) | Out-Null
 }
+
