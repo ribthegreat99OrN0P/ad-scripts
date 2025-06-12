@@ -8,7 +8,7 @@ function Invoke-KrbRelayUp
     $StringWriter = New-Object IO.StringWriter
     [Console]::SetOut($StringWriter)
 
-    [KrbRelay.Program]::main([string[]]$args)
+    [KrbRelayUp.Program]::main([string[]]$args)
 
     [Console]::SetOut($OldConsoleOut)
     $Results = $StringWriter.ToString()
